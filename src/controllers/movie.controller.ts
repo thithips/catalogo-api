@@ -1,9 +1,11 @@
 import { Body, Controller, Delete, Get, Inject, NotFoundException, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { InjectRepository} from "@nestjs/typeorm";
 import { MovieModel } from "src/models/movie.model";
 import { MovieSchema } from "src/schemas/movie.schema";
 import { Repository } from "typeorm";
 
+@ApiTags('movies')
 @Controller('/movie')
 export class MovieController {
     constructor(@InjectRepository(MovieModel) private model: Repository<MovieModel>) {}
